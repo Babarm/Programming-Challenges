@@ -22,6 +22,13 @@ def run():
     # Loading any additional data need for the program
     loadAdditional()
 
+    # Iterate every value on the interval [1, 1000)
+    # If it is divisible by (a multiple of) 3 or 5, add it to the ans value
+    ans = 0
+    for i in range(1, 1000):
+        if i % 3 == 0 or i % 5 == 0:
+            ans += i
+
     # Returning the value of ans
     return ans
 

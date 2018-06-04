@@ -21,6 +21,24 @@ def run():
 
     # Loading any additional data need for the program
     loadAdditional()
+    
+    # Generate values of the fibonacci sequence until they exceed 4,000,000
+    # If it is divisible by 2 (even) add it to the ans value
+    ans = 0
+    fib = 0
+    a = 0
+    b = 1
+    while fib < 4000000:
+        # Generate the next fibonacci term by adding the previous two terms (a and b)
+        # And update the previous two terms
+        fib = a + b
+        a = b
+        b = fib
+
+        # Add to ans if even
+        if fib % 2 == 0:
+            ans += fib
+
 
     # Returning the value of ans
     return ans
