@@ -105,9 +105,9 @@ if __name__ == '__main__':
     timeElapsed = timeEnded - timeStarted
     if(timeElapsed < 0.001):
         timeElapsed *= 1000000
-        print('Completed in {0:.3f} microseconds'.format(timeElapsed))
+        print('Completed in {0:.3f} μs'.format(timeElapsed))
     elif(timeElapsed < 1):
         timeElapsed *= 1000
-        print('Completed in {0:.3f} milliseconds'.format(timeElapsed))
+        print('Completed in {0:.3f} ms'.format(timeElapsed))
     else:
-        print('Completed in {0:.3f} seconds'.format(timeElapsed))
+        print('Completed in {0:.3f} sec'.format(timeElapsed))
