@@ -1,7 +1,10 @@
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
 
 using namespace std;
 
 namespace lib {
-	void doNothing();
+	vector<string> loadData(int id);
 }
