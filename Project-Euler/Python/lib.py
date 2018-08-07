@@ -91,3 +91,11 @@ def sieve(limit):
 		if isPrime[i]:
 			primes.append(i)
 	return primes
+
+# Determines if the number is reversible as per the Project Euler definition
+def is_reversible(number):
+	number = str(number + int(str(number)[::-1]))
+	for char in number:
+		if int(char) % 2 == 0:
+			return False
+	return True
