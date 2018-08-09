@@ -99,3 +99,13 @@ def is_reversible(number):
 		if int(char) % 2 == 0:
 			return False
 	return True
+
+# Determines the number of divisors in a number
+def num_divisors(number):
+	num_divs = 0
+	for i in range(1, int(sqrt(number)) + 1):
+		if number % i == 0:
+			num_divs += 2
+	if(sqrt(number) * sqrt(number) == float(number)):
+		num_divs -= 1
+	return num_divs
