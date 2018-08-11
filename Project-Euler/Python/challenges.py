@@ -1,18 +1,14 @@
 from clib import *
 import data
-import inflect
 
 def _001():
-	ans = 0
-	for i in range(1000):
-		ans += i if i % 3 == 0 or i % 5 == 0 else 0
-	return ans
+	return sum(i for i in range(1000) if i % 3 == 0 or i % 5 == 0)
 
 def _002():
 	ans = 0
 	fib = a = 0
 	b = 1
-	while fib < 4e6:
+	while fib < 4000000:
 		fib = a + b
 		a = b
 		b = fib
@@ -79,7 +75,7 @@ def _007():
 
 def _008():
 	ans = 0
-	numbers = data._008
+	numbers = data._008.replace('\n', '')
 	for i in range(len(numbers) - 12):
 		subSection = numbers[i:i + 13]
 		product = mult(map(int, subSection))
@@ -100,7 +96,18 @@ def _010():
 	return sum(sieve(2000000))
 
 def _011():
-	ans = None
+	ans = 0
+	grid = data._011
+	for y in range(len(grid)):
+		for x in range(len(grid)):
+			if x + 4 <= len(grid):
+				ans = max(grid_product(grid, x, y, 1, 0, 4), ans)
+			if y + 4 <= len(grid):
+				ans = max(grid_product(grid, x, y, 0, 1, 4), ans)
+			if x + 4 <= len(grid) and y + 4 <= len(grid):
+				ans = max(grid_product(grid, x, y, 1, 1, 4), ans)
+			if x - 4 >= -1 and y + 4 <= len(grid):
+				ans = max(grid_product(grid, x, y, -1, 1, 4), ans)
 	return ans
 
 def _012():
@@ -114,14 +121,10 @@ def _012():
 	return ans
 
 def _013():
-	ans = 0
-	numbers = data._013
-	ans = int(str(sum(numbers))[0:10])
-	return ans
+	return int(str(sum(data._013))[0:10])
 
 def _014():
-	ans = None
-	return ans
+	return max(range(1,1000000), key=collatz_chain)
 
 def _015():
 	return int(factorial(40) / (factorial(20) * factorial(20)))
@@ -137,23 +140,42 @@ def _017():
 	return ans
 
 def _018():
-	ans = None
-	return ans
+	triangle = data._018
+	for i in range(len(triangle) - 2, -1, -1):
+		for j in range(i + 1):
+			triangle[i][j] += max(triangle[i+1][j], triangle[i+1][j+1])
+	return triangle[0][0]
 
 def _019():
-	ans = None
+	ans = 0
+	for i in range(1901, 2001):
+		for j in range(1, 13):
+			ans += 1 if datetime.date(i, j, 1,).weekday() == 6 else 0
 	return ans
 
 def _020():
-	ans = None
-	return ans
+	return sum(map(int, str(factorial(100))))
 
 def _021():
-	ans = None
+	ans = 0
+	for a in range(1, 10000):
+		b = sum(proper_divisors(a))
+		if sum(proper_divisors(b)) == a and a != b:
+			ans += a
 	return ans
 
 def _022():
-	ans = None
+	ans = 0
+	names = sorted(data._022)
+	letters = {'A':1,'B':2,'C':3,'D':4,'E':5,'F':6,'G':7,'H':8,'I':9,'J':10,
+			   'K':11,'L':12,'M':13,'N':14,'O':15,'P':16,'Q':17,'R':18,'S':19,
+			   'T':20,'U':21,'V':22,'W':23,'X':24,'Y':25,'Z':26}
+	for index, name in enumerate(names):
+		namescore = 0
+		for letter in name:
+			namescore += letters[letter]
+		namescore *= (index + 1)
+		ans += namescore
 	return ans
 
 def _023():
@@ -161,11 +183,22 @@ def _023():
 	return ans
 
 def _024():
-	ans = None
-	return ans
+	arr = list(range(10))
+	perm = islice(permutations(arr), 999999, None)
+	return ''.join(str(x) for x in next(perm))
 
 def _025():
-	ans = None
+	ans = 1
+	fib = 1
+	a = 0
+	b = 1
+	while True:
+		fib = a + b
+		a = b
+		b = fib
+		ans += 1
+		if len(str(fib)) >= 1000:
+			break
 	return ans
 
 def _026():
@@ -177,19 +210,34 @@ def _027():
 	return ans
 
 def _028():
-	ans = None
+	ans = 1
+	ans += sum(4 * i * i - 6 * (i - 1) for i in range(3, 1001 + 1, 2))
 	return ans
 
 def _029():
-	ans = None
+	ans = 0
+	results = []
+	for a in range(2, 101):
+		for b in range(2, 101):
+			results.append(a**b)
+	ans = len(set(results))
 	return ans
 
 def _030():
-	ans = None
+	ans = 0
+	for i in range(2, 400000):
+		num = sum(j**5 for j in map(int, str(i)))
+		ans += i if num == i else 0
 	return ans
 
 def _031():
-	ans = None
+	ans = 0
+	total = 200
+	ways = [1] + [0] * total
+	for coin in [1, 2, 5, 10, 20, 50, 100, 200]:
+		for i in range(len(ways) - coin):
+			ways[i + coin] += ways[i]
+	ans = ways[-1]
 	return ans
 
 def _032():

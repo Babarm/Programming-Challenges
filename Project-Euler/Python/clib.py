@@ -1,4 +1,20 @@
+import datetime
 from math import *
+import inflect
+from itertools import count, islice, permutations
+
+class memorize(object):
+	def __init__(self, func):
+		self.func = func
+		self.cache = {}
+		return None
+	def __call__(self, *args):
+		if args in self.cache:
+			return self.cache[args]
+		else:
+			val = self.func(*args)
+			self.cache[args] = val
+			return val
 
 # Determines of a number is a palindrome
 def is_palindrome(number):
@@ -13,9 +29,12 @@ def is_smallest_multiple(number):
 
 # Determines if a number is prime
 def is_prime(number):
-	if number % 2 == 0 and number > 2:
+	if number % 2 == 0 and number < 2:
 		return False
-	return all(number % i for i in range(3, int(sqrt(number)) + 1, 2))
+	for i in range(3, int(sqrt(number)), 2):
+		if number % i == 0:
+			return False
+	return True
 
 # Multiplies all numbers in the array
 def mult(numbers):
@@ -56,3 +75,39 @@ def num_divisors(number):
 	if(sqrt(number) * sqrt(number) == float(number)):
 		num_divs -= 1
 	return num_divs
+
+# Returns the product of n consecutive numbers in a grid in a given direction
+def grid_product(grid, x, y, xdir, ydir, limit):
+	result = 1
+	for i in range(limit):
+		result *= grid[y + i * ydir][x + i * xdir] 
+	return result
+
+# Determines the length of a collatz chain
+@memorize
+def collatz_chain(x):
+	if x == 1:
+		return 1
+	if x % 2 == 0:
+		y = x // 2
+	else:
+		y = x * 3 + 1
+	return collatz_chain(y) + 1
+
+# Returns a list of proper divisors of a given number
+def proper_divisors(number):
+	divisors = []
+	if number <= 1:
+		return divisors
+	for i in range(1, number):
+		if number % i == 0:
+			divisors.append(i)
+	return divisors
+
+# Determines if the input is pandigital on the given size
+def is_pandigital(number):
+	digits = list(map(int, str(number)))
+	if digits[0] == 0:
+		return False
+	digits.sort()
+	return digits == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]

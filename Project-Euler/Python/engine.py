@@ -1,11 +1,8 @@
-from blessings import Terminal
 import challenges
 from data import challengeNames
 from elib import *
 
 def run(index):
-
-	t = Terminal()
 
 	hide_cursor()
 	clear()

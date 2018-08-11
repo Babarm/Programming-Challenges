@@ -1,5 +1,7 @@
 from engine import *
 
+sys.setrecursionlimit(3000)
+
 while True:
 	clear()
 	print('[1] Run Single Challenge')
