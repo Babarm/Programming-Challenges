@@ -1,8 +1,13 @@
 import datetime
+from functools import reduce
 from math import *
 import inflect
-from itertools import count, islice, permutations
+from itertools import islice, permutations
 
+# Allows for caching of calculations
+# Usage:
+#	@memorize
+#	def func()
 class memorize(object):
 	def __init__(self, func):
 		self.func = func
@@ -29,7 +34,7 @@ def is_smallest_multiple(number):
 
 # Determines if a number is prime
 def is_prime(number):
-	if number % 2 == 0 and number < 2:
+	if (number % 2 == 0 and number > 2) or (number < 2):
 		return False
 	for i in range(3, int(sqrt(number)), 2):
 		if number % i == 0:
@@ -38,10 +43,7 @@ def is_prime(number):
 
 # Multiplies all numbers in the array
 def mult(numbers):
-	result = 1
-	for number in numbers:
-		result *= number
-	return result
+	return reduce(lambda x, y: x * y, numbers)
 
 # Returns a list of all primes less than the limit
 def sieve(limit):
@@ -78,17 +80,14 @@ def num_divisors(number):
 
 # Returns the product of n consecutive numbers in a grid in a given direction
 def grid_product(grid, x, y, xdir, ydir, limit):
-	result = 1
-	for i in range(limit):
-		result *= grid[y + i * ydir][x + i * xdir] 
-	return result
+	return mult(grid[y + i * ydir][x + i * xdir] for i in range(limit))
 
 # Determines the length of a collatz chain
 @memorize
 def collatz_chain(x):
 	if x == 1:
 		return 1
-	if x % 2 == 0:
+	elif x % 2 == 0:
 		y = x // 2
 	else:
 		y = x * 3 + 1

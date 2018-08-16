@@ -18,59 +18,29 @@ def _002():
 def _003():
 	ans = 0
 	limit = 600851475143
-
 	for i in range(1, int(sqrt(limit))):
 		if limit % i == 0:
 			ans = i
 			limit /= i
-
-	if ans < limit:
-		ans = limit
+	ans = limit if ans < limit else ans
 	return ans
 
 def _004():
 	ans = 0
-	for a in range(100, 1000):
-		for b in range(100, 1000):
-			c = a * b
-			if is_palindrome(c) and ans < c:
-				ans = c
+	ans = max(a * b for a in range(100, 1000) for b in range(100, 1000) if is_palindrome(a * b))
 	return ans
 
 def _005():
-	ans = 0
 	number = 80
-	while True:
-		if(is_smallest_multiple(number)):
-			ans = number
-			break
+	while not is_smallest_multiple(number):
 		number += 80
-	return ans
+	return number
 
 def _006():
-	ans = 0
-	square_sum = sum_square = 0
-
-	for i in range(101): 
-		sum_square += ( i * i )
-
-	for i in range(101):
-		square_sum += i
-	square_sum *= square_sum
-
-	ans = square_sum - sum_square
-	return ans
+	return sum(i for i in range(101)) * sum(i for i in range(101)) - sum(i * i for i in range(101))
 
 def _007():
-	ans = 0
-	ans = 3
-	numPrimes = 1
-	while True:
-		if is_prime(ans):
-			numPrimes += 1
-			if numPrimes == 10001:
-				break
-		ans += 2
+	ans = 'FIXME'
 	return ans
 
 def _008():
@@ -78,7 +48,7 @@ def _008():
 	numbers = data._008.replace('\n', '')
 	for i in range(len(numbers) - 12):
 		subSection = numbers[i:i + 13]
-		product = mult(map(int, subSection))
+		product = mult(list(map(int, subSection)))
 		if product > ans:
 			ans = product
 	return ans
@@ -147,11 +117,7 @@ def _018():
 	return triangle[0][0]
 
 def _019():
-	ans = 0
-	for i in range(1901, 2001):
-		for j in range(1, 13):
-			ans += 1 if datetime.date(i, j, 1,).weekday() == 6 else 0
-	return ans
+	return sum(1 for i in range(1901, 2001) for j in range(1, 13) if datetime.date(i, j, 1).weekday() == 6)
 
 def _020():
 	return sum(map(int, str(factorial(100))))
@@ -165,33 +131,22 @@ def _021():
 	return ans
 
 def _022():
-	ans = 0
 	names = sorted(data._022)
 	letters = {'A':1,'B':2,'C':3,'D':4,'E':5,'F':6,'G':7,'H':8,'I':9,'J':10,
 			   'K':11,'L':12,'M':13,'N':14,'O':15,'P':16,'Q':17,'R':18,'S':19,
 			   'T':20,'U':21,'V':22,'W':23,'X':24,'Y':25,'Z':26}
-	for index, name in enumerate(names):
-		namescore = 0
-		for letter in name:
-			namescore += letters[letter]
-		namescore *= (index + 1)
-		ans += namescore
-	return ans
+	return sum(sum(letters[letter] for letter in name) * (index + 1) for index, name in enumerate(names))
 
 def _023():
 	ans = None
 	return ans
 
 def _024():
-	arr = list(range(10))
-	perm = islice(permutations(arr), 999999, None)
-	return ''.join(str(x) for x in next(perm))
+	return ''.join(str(x) for x in next(islice(permutations(list(range(10))), 999999, None)))
 
 def _025():
-	ans = 1
-	fib = 1
 	a = 0
-	b = 1
+	ans = fib = b = 1
 	while True:
 		fib = a + b
 		a = b
@@ -210,9 +165,7 @@ def _027():
 	return ans
 
 def _028():
-	ans = 1
-	ans += sum(4 * i * i - 6 * (i - 1) for i in range(3, 1001 + 1, 2))
-	return ans
+	return 1 + sum(4 * i * i - 6 * (i - 1) for i in range(3, 1001 + 1, 2))
 
 def _029():
 	ans = 0
