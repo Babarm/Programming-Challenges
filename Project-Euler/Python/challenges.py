@@ -26,14 +26,11 @@ def _003():
 	return ans
 
 def _004():
-	ans = 0
-	ans = max(a * b for a in range(100, 1000) for b in range(100, 1000) if is_palindrome(a * b))
-	return ans
+	return max(a * b for a in range(100, 1000) for b in range(100, 1000) if is_palindrome(a * b))
 
 def _005():
 	number = 80
-	while not is_smallest_multiple(number):
-		number += 80
+	while not is_smallest_multiple(number): number += 80
 	return number
 
 def _006():
@@ -185,12 +182,6 @@ def _030():
 
 def _031():
 	ans = 0
-	total = 200
-	ways = [1] + [0] * total
-	for coin in [1, 2, 5, 10, 20, 50, 100, 200]:
-		for i in range(len(ways) - coin):
-			ways[i + coin] += ways[i]
-	ans = ways[-1]
 	return ans
 
 def _032():
