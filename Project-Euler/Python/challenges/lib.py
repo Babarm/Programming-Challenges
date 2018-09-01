@@ -1,6 +1,6 @@
 import datetime
 from functools import reduce
-from itertools import islice,count
+from itertools import islice,count,permutations
 from math import *
 import os
 import platform
@@ -161,3 +161,8 @@ def proper_divisors(num):
 		if num % i == 0:
 			divs.append(i)
 	return divs
+
+def is_pandigital(num):
+	check = '123456789'
+	temp = ''.join(list(map(str, sorted(list(map(int, str(num)))))))
+	return temp == check[:len(temp)]
