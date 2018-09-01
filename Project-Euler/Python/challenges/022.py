@@ -14,8 +14,8 @@ def run():
 
 clear()
 
-print('Challenge #: FIXME')
-print('==================\n')
+print('Challenge #22: Names Scores')
+print('===========================\n')
 
 input('Press ENTER to run challenge . . . ')
 print('')
