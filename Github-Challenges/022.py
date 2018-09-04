@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 22')
 print('Level 3\n')
 print('Write a program to compute the frequency of the words from the input. The')

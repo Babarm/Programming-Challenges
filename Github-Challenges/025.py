@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 25')
 print('Level 1\n')
 print('Define a class, which have a class parameter and a same instance parameter\n\n')

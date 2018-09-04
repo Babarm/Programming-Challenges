@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 from math import floor,sqrt
 
 print('Question 6')

@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 7')
 print('Level 2\n')
 print('Write a program that takes 2 digits, X and Y, as input and generates a')

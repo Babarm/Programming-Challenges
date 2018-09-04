@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 4')
 print('Level 1\n')
 print('Write a program which accepts a sequence of comma-separated numbers from')

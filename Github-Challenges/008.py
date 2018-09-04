@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 8')
 print('Level 2\n')
 print('Write a program that accepts a comma separated sequence of words as input')

@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 24')
 print('Level 1\n')
 print('Python has many built-in functions, and if you do not know how to use it,')

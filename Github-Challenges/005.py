@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 5')
 print('Level 1\n')
 print('Define a class which has at least two methods:')

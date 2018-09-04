@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 19')
 print('Level 3\n')
 print('You are required to write a program to sort the (name, age, height) tuples')

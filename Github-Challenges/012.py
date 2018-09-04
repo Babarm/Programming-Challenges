@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 12')
 print('Level 2\n')
 print('Write a program, which will find all such numbers between 1000 and 3000')

@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 11')
 print('Level 2\n')
 print('Write a program that accepts a sequence of comma separated 4 digit binary')

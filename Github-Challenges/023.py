@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 23')
 print('Level 1\n')
 print('Write a method to calculate the square value of a number\n\n')

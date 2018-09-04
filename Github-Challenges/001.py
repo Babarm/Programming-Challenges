@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 1')
 print('Level 1\n')
 print('Write a program which will find all such numbers which are divisible by')

@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 3')
 print('Level 1\n')
 print('With a given integral number n, write a program to generate a dictionary')

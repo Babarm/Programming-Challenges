@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 14')
 print('Level 2\n')
 print('Write a program that accepts a sentence and calculates the number of')

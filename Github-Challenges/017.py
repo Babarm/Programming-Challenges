@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 17')
 print('Level 2\n')
 print('Write a program that computes the net amount of a bank account based on')

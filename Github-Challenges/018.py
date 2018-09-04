@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 18')
 print('Level 3\n')
 print('A website requires the users to input username and password to register')

@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 16')
 print('Level 2\n')
 print('Use a list comprehension to square each odd number in a list. The list is')

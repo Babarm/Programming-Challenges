@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 15')
 print('Level 2\n')
 print('Write a program that computes the vlaue of a + aa + aaa + aaaa with a')

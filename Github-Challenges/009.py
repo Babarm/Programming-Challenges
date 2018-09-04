@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 9')
 print('Level 2\n')
 print('Write a program that accepts a sequence of lines as input and prints the')

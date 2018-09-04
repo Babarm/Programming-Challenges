@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 20')
 print('Level 3\n')
 print('Define a class with a generator which can iterate the numbers, which are')

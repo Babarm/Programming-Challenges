@@ -1,3 +1,6 @@
+from lib import *
+
+clear()
 print('Question 21')
 print('Level 3\n')
 print('A robot moves in a plane starting from the original point (0,0). The robot')
