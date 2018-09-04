@@ -1,6 +1,7 @@
 import datetime
+import fractions
 from functools import reduce
-from itertools import islice,count,permutations
+from itertools import filterfalse,islice,count,permutations
 from math import *
 import os
 import platform
@@ -169,3 +170,7 @@ def is_pandigital(num):
 	check = '123456789'
 	temp = ''.join(list(map(str, sorted(list(map(int, str(num)))))))
 	return temp == check[:len(temp)]
+
+# Determines if two strings are permutations of each other
+def is_perm(a, b):
+	return sorted(str(a)) == sorted(str(b))

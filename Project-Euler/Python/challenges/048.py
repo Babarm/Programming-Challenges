@@ -2,12 +2,12 @@ from lib import *
 import time
 
 def run():
-	return sum(map(int, str(factorial(100))))
+	return int(str(sum(i**i for i in range(1, 1000)))[-10:])
 
 clear()
 
-print('Challenge #20: Factorial Digit Sum')
-print('==================================\n')
+print('Challenge #48: Self Powers')
+print('==========================\n')
 
 input('Press ENTER to run challenge . . . ')
 print('')

@@ -2,12 +2,14 @@ from lib import *
 import time
 
 def run():
-	return sum(map(int, str(factorial(100))))
+	ans = 0
+	ans = max(sum(map(int, str(a**b))) for a in range(100) for b in range(100))
+	return ans
 
 clear()
 
-print('Challenge #20: Factorial Digit Sum')
-print('==================================\n')
+print('Challenge #56: Powerful Digit Sum')
+print('=================================\n')
 
 input('Press ENTER to run challenge . . . ')
 print('')
