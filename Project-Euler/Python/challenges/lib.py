@@ -60,6 +60,7 @@ class memorize(object):
 		self.func = func
 		self.cache = {}
 		return None
+
 	def __call__(self, *args):
 		if args in self.cache:
 			return self.cache[args]
@@ -155,6 +156,7 @@ def num_to_word(num):
 		word += units[num]
 	return word
 
+# Returns the proper divisors of a number
 def proper_divisors(num):
 	divs = []
 	for i in range(1, num):
@@ -162,6 +164,7 @@ def proper_divisors(num):
 			divs.append(i)
 	return divs
 
+# Determines if a number is pandigital
 def is_pandigital(num):
 	check = '123456789'
 	temp = ''.join(list(map(str, sorted(list(map(int, str(num)))))))
