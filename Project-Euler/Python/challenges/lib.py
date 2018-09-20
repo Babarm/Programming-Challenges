@@ -1,12 +1,12 @@
 import datetime
 import fractions
 from functools import reduce
-from itertools import filterfalse,islice,count,permutations
+from itertools import count,filterfalse,islice,permutations
 from math import *
 import os
 import platform
+import roman
 import sys
-
 
 system = platform.system()
 
@@ -21,7 +21,7 @@ def clear():
 	elif system in ['Windows']:
 		os.system('cls')
 	else:
-		print('An error occured clearing the screen.')
+		print('An error occured clearing the screen. OS and/or Terminal Session not supported')
 	return None
 
 # Formats a timestamp into a more readable format
@@ -168,9 +168,34 @@ def proper_divisors(num):
 # Determines if a number is pandigital
 def is_pandigital(num):
 	check = '123456789'
-	temp = ''.join(list(map(str, sorted(list(map(int, str(num)))))))
+	temp = ''.join(map(str, sorted(list(map(int, str(num))))))
 	return temp == check[:len(temp)]
 
 # Determines if two strings are permutations of each other
 def is_perm(a, b):
 	return sorted(str(a)) == sorted(str(b))
+
+roman_values = [('M', 1000), ('CM', 900), ('D', 500), ('CD', 400), ('C', 100), ('XC', 90), ('L', 50), ('XL', 40), ('X', 10), ('IX', 9), ('V', 5), ('IV', 4), ('I', 1)]
+
+# Converts a roman numeral into an arabic numeral
+def to_arabic(roman):
+	arabic = 0
+	while len(roman) > 0:
+		for (pre, val) in roman_values:
+			if roman.startswith(pre):
+				arabic += val
+				roman = roman[len(pre):]
+	return arabic
+
+# Converts an arabic numeral into a roman numeral
+def to_roman(arabic):
+	if arabic == 0:
+		return ''
+	for (pre, val) in roman_values:
+		if arabic >= val:
+			arabic -= val
+			return pre + to_roman(arabic)
+
+if __name__ == '__main__':
+	clear()
+	print('Library cannot be invoked directly!')
