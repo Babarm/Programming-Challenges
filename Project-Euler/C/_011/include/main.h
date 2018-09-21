@@ -12,6 +12,8 @@ struct timedef {
 
 void clear();
 
+size_t max(size_t a, size_t b);
+
 size_t run();
 
 int main(int argc, char **argv);

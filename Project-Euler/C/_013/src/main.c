@@ -4,8 +4,6 @@ void clear() {
 	printf("\e[1;1H\e[2J");
 }
 
-#define LIMIT 2000000 /* Size of the array */
-
 /* Method that runs the challenge code */
 size_t run() {
 	size_t ans = 0;
@@ -14,24 +12,8 @@ size_t run() {
 	/* | Place your code here | */
 	/* +----------------------+ */
 
-	size_t i, j;
-	int *primes;
-	primes = malloc(sizeof(int) * LIMIT);
-	for(i = 2; i < LIMIT; i++) { primes[i] = 1; }
-	for(i = 2; i < LIMIT; i++) {
-		if(primes[i]) {
-			for(j = i * i; j < LIMIT; j+= i) {
-				primes[j] = 0;
-			}
-		}
-	}
+	char sum[52];
 
-	for(i = 2; i < LIMIT; i++) {
-		if(primes[i]) {
-			ans += i;
-		}
-	}
-	free(primes);
 
 	return ans;
 }
@@ -47,8 +29,8 @@ int main(int argc, char **argv) {
 	clear();
 
 	/* Print Title of Challenge */
-	printf("#10: Summation of Primes\n");
-	printf("========================\n\n");
+	printf("#: \n");
+	printf("===\n\n");
 
 	printf("Running . . . \n\n");
 

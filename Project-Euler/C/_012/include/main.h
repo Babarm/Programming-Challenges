@@ -12,6 +12,8 @@ struct timedef {
 
 void clear();
 
+size_t num_divisors(size_t val);
+
 size_t run();
 
 int main(int argc, char **argv);

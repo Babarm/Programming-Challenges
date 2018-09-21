@@ -110,7 +110,7 @@ def _12():
 	return ans
 
 def _13():
-	return str(sum(int(line) for line in open('data/013.txt', 'r')))[:10]
+	return sum(int(line) for line in open('data/013.txt', 'r'))
 
 def _14():
 	return max(range(1, 1000000), key=collatz)
