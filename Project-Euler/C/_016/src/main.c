@@ -12,6 +12,15 @@ size_t run() {
 	/* | Place your code here | */
 	/* +----------------------+ */
 
+	double exp = pow(2.0, 1000.0);
+
+	char arr[303]; /* length of string + 1 for NULL terminator */
+	snprintf(arr, 303, "%f", exp);
+
+	for(int i = 0; i < 302; i++) {
+		ans += (size_t) (arr[i] - '0');
+	}
+
 	return ans;
 }
 

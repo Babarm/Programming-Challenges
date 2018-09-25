@@ -4,34 +4,14 @@ void clear() {
 	printf("\e[1;1H\e[2J");
 }
 
-int cache[1000000];
 
 /* Method that runs the challenge code */
 size_t run() {
 	size_t ans = 0;
-	int longest = 0;
 
 	/* +----------------------+ */
 	/* | Place your code here | */
 	/* +----------------------+ */
-
-	for(int i = 0; i < 1000000; i++) { cache[i] = -1; }
-	cache[1] = 1;
-
-	for(int i = 2; i < 1000000; i++) {
-		long sequence = (long) i;
-		int k = 0;
-		while(sequence != 1 && sequence >= i) {
-			k++;
-			if(sequence % 2 == 0) { sequence /= 2; }
-			else { sequence = 3 * sequence + 1; }
-		}
-		cache[i] = k + cache[(int)sequence];
-		if(cache[i] > longest) {
-			longest = cache[i];
-			ans = (size_t) i;
-		}
-	}
 
 	return ans;
 }
@@ -47,7 +27,7 @@ int main(int argc, char **argv) {
 	clear();
 
 	/* Print Title of Challenge */
-	printf("#14: Longest Collatz Path\n");
+	printf("#17: Number Letter Counts\n");
 	printf("=========================\n\n");
 
 	printf("Running . . . \n\n");
@@ -70,7 +50,7 @@ int main(int argc, char **argv) {
 	/* Format the timestamp into something more readable */
 	printf("Completed in ");
 	if (timestamp >= 1000000000) {
-		printf("%'0.3f sec\n\n", (double)timestamp / 1e9);
+		printf("%0.3f sec\n\n", (double)timestamp / 1e9);
 	} else if (timestamp >= 1000000) {
 		printf("%0.3f ms\n\n", (double)timestamp / 1e6);
 	} else if (timestamp >= 1000) {

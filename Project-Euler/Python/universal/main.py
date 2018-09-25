@@ -7,19 +7,11 @@ if __name__ == '__main__':
 
 	clear()
 	
-	print('Loading assets . . . ')
-	i = 0
 	hide_cursor()
 	with open('data/names.txt', 'r') as f:
 		for line in f:
-			i += 1
 			names.append(line.strip())
 	show_cursor()
-
-	size = 0
-	for i in range(1, len(names)):
-		size += len(names[i])
-	input('{0:,} bytes'.format(size))
 
 	while True:
 		clear()
