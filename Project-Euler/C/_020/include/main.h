@@ -5,14 +5,18 @@
 #include <sys/time.h>
 #include <time.h>
 
+
+#define MAX 500
+
+
 struct timedef {
 	time_t tv_sec;
 	long   tv_nsec;
 };
 
-void clear();
+void factorial(int n);
 
-int count_number_word_size(int val);
+void clear();
 
 size_t run();
 

@@ -10,9 +10,9 @@ struct timedef {
 	long   tv_nsec;
 };
 
-void clear();
+int get_weekday(int day, int month, int year);
 
-int count_number_word_size(int val);
+void clear();
 
 size_t run();
 

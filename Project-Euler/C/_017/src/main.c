@@ -4,6 +4,51 @@ void clear() {
 	printf("\e[1;1H\e[2J");
 }
 
+/* Defining the size of the various words needed */
+char digit_sizes[20] = {0,3,3,5,4,4,3,5,5,4,3,6,6,8,8,7,7,9,8,8};
+char tens_sizes[10] = {0,3,6,6,5,5,5,7,6,6};
+#define HUNDRED 7
+#define THOUSAND 8
+#define AND 3
+
+
+/* Counts the size of the word form of an integer */
+/* Doesn't actually get the word form, just the size */
+/* TODO: Clean up. Make it more readable, potentially more efficient */
+int count_number_word_size(int val) {
+	int count = 0, digit = 0, copy = val;
+	if(val < 1) {
+		return count;
+	}
+	while(copy != 0) {
+		if(copy >= 1000) {
+			digit = copy / 1000;
+			count += digit_sizes[digit];
+			count += THOUSAND;
+			copy %= 1000;
+		}
+		if(copy >= 100) {
+			digit = copy / 100;
+			count += digit_sizes[digit];
+			count += HUNDRED;
+			copy %= 100;
+			if(copy > 0) {
+				count += AND;
+			}
+		}
+		if(copy >= 20) {
+			digit = copy / 10;
+			count += tens_sizes[digit];
+			copy %= 10;
+		}
+		if(copy > 0) {
+			count += digit_sizes[copy];
+			copy = 0;
+		}
+	}
+	return count;
+}
+
 
 /* Method that runs the challenge code */
 size_t run() {
@@ -12,6 +57,10 @@ size_t run() {
 	/* +----------------------+ */
 	/* | Place your code here | */
 	/* +----------------------+ */
+	
+	for(int i = 1; i <= 1000; i++) {
+		ans += count_number_word_size(i);
+	}
 
 	return ans;
 }

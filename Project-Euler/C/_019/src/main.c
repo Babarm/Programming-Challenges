@@ -4,22 +4,23 @@ void clear() {
 	printf("\e[1;1H\e[2J");
 }
 
-int mod(int a, int b) {
-	int r = a / b;
-	return a - (r * b);
+int get_weekday(int day, int month, int year) {
+	return (day += month < 3 ? year-- : year - 2, 23 * month / 9 + day + 4 + year / 4 - year / 100 + year / 400) % 7;
 }
 
 /* Method that runs the challenge code */
-int run() {
-	int ans = 0;
+size_t run() {
+	size_t ans = 0;
 
 	/* +----------------------+ */
 	/* | Place your code here | */
 	/* +----------------------+ */
 
-	for(int i = 0; i < 1000; i++) {
-		if(mod(i, 3) == 0 || mod(i, 5) == 0) {
-			ans += i;
+	for(int year = 1901; year <= 2000; year++) {
+		for(int month = 1; month <= 12; month++) {
+			if(get_weekday(1, month, year) == 0) {
+				ans += 1;
+			}
 		}
 	}
 
@@ -37,8 +38,8 @@ int main(int argc, char **argv) {
 	clear();
 
 	/* Print Title of Challenge */
-	printf("#1: Multiples of 3 and 5\n");
-	printf("========================\n\n");
+	printf("#19: Counting Sundays\n");
+	printf("=====================\n\n");
 
 	printf("Running . . . \n\n");
 
@@ -46,7 +47,7 @@ int main(int argc, char **argv) {
 	clock_gettime(CLOCK_REALTIME, &start);
 	
 	/* Acquire Answer */
-	int *ans = malloc(sizeof(int));
+	size_t *ans = malloc(sizeof(size_t));
 	*(ans) = run();
 
 	/* Mark the ending timestamp and calculate time elapsed */
@@ -54,7 +55,7 @@ int main(int argc, char **argv) {
 	long timestamp = end.tv_nsec - start.tv_nsec;
 
 	/* Report the answer and the time taken to calculate the answer */
-	printf("Answer: %'d\n", *(ans));
+	printf("Answer: %'lu\n", *(ans));
 	free(ans);
 
 	/* Format the timestamp into something more readable */

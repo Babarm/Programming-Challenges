@@ -49,8 +49,8 @@ int main(int argc, char **argv) {
 	clear();
 
 	/* Print Title of Challenge */
-	printf("#: \n");
-	printf("===\n\n");
+	printf("#7: 10 001st Prime\n");
+	printf("==================\n\n");
 
 	printf("Running . . . \n\n");
 

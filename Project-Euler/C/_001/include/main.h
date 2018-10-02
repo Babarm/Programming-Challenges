@@ -12,6 +12,8 @@ struct timedef {
 
 void clear();
 
+int mod(int a, int b);
+
 int run();
 
 int main(int argc, char **argv);
