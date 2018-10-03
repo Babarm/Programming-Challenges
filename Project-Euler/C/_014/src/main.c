@@ -14,18 +14,29 @@ size_t run() {
 	/* +----------------------+ */
 	/* | Place your code here | */
 	/* +----------------------+ */
-
+	
+	/* Make a cache to store values already calculated, prevents unnecessary work */
 	for(int i = 0; i < 1000000; i++) { cache[i] = -1; }
 	cache[1] = 1;
 
+	/*
+	   Calculate the longest collatz chain, putting the result in the cache.
+	   If the program comes across a value already in the cache, it adds it to the current count and puts
+	   that value in the cache.
+	   Using a long to make sure the value is large enough, though I am sure via analysis a better data type could
+	   be used
+	 */
 	for(int i = 2; i < 1000000; i++) {
 		long sequence = (long) i;
 		int k = 0;
+		/* calculating value */
+		/* if it sees the sequence is less than i, the result MUST be in the cache. */
 		while(sequence != 1 && sequence >= i) {
 			k++;
 			if(sequence % 2 == 0) { sequence /= 2; }
 			else { sequence = 3 * sequence + 1; }
 		}
+		/* Using the cache */
 		cache[i] = k + cache[(int)sequence];
 		if(cache[i] > longest) {
 			longest = cache[i];

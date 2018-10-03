@@ -17,7 +17,7 @@ int run() {
 		fib = a + b;
 		a = b;
 		b = fib;
-		if (fib % 2 == 0) {
+		if ((fib << 31) >> 31 == 0) {
 			ans += fib;
 		}
 	}

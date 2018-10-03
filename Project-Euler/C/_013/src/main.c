@@ -21,21 +21,23 @@ size_t run() {
 	/* read data file line by line, but don't store in memory */
 	FILE * file_pointer = fopen("data.txt", "r");
 	char * line = malloc(length * sizeof(char));
+
+	/* Basic idea is to sum all the columns first, and do the cascade later */
 	while(fgets(line, length, file_pointer) != NULL) {
 		for(int i = 0; i < length - 2; i++) {
 			digit_sums[i] += (line[i] - '0');
 		}
 	}
 
-	/* free memory occupied by file_pointer and line */
+	/* free memory occupied by file_pointer and line back to the system */
 	free(file_pointer);
 	free(line);
 
 	/* shift all values down 2 spots, as the newline and null characters are not needed */
 	for(int i = length - 3; i >= 0; i--) {
 		digit_sums[i + 2] = digit_sums[i];
-		digit_sums[i] = 0;
 	}
+	digit_sums[0] = digit_sums[1] = 0;
 
 	/* collapse all the digit sums (finish the addition) */
 	for(int i = length - 1; i > 0; i--) {
@@ -46,6 +48,7 @@ size_t run() {
 	}
 	
 	/* condense the first 10 characters into ans, as specified by the challenge */
+	/* 10 is the arbitrary precision provided by the challenge, it could really be any number */
 	for(int i = 0; i < 10; i++) {
 		ans *= 10;
 		ans += digit_sums[i];
