@@ -29,10 +29,11 @@
 
 /* ==================================================================================================== */
 
-
+/* Method Prototypes */
 static uint64_t ns();
 void report_time_elapsed(uint64_t* start, uint64_t* end);
 void run_challenge(int64_t* ans);
+int mod(int a, int b);
 
 
 /* ==================================================================================================== */
@@ -49,8 +50,8 @@ int main() {
 	printf("\e[1;1H\e[2J\n");
 
 	/* Heading for the challenge */
-	printf("Problem #:\n");
-	printf("==========\n\n");
+	printf("Problem #1: Multiples of 3 and 5\n");
+	printf("================================\n\n");
 
 	/* Mark starting timestamp */
 	start = ns();
@@ -77,8 +78,17 @@ int main() {
 /* Runs the actual code to solve the challenge */
 void run_challenge(int64_t* ptr) {
 	int64_t ans = 0;
+	for(int i = 0; i < 1000; i++) {
+		if(mod(i, 3) == 0 || mod(i, 5) == 0) {
+			ans += i;
+		}
+	}
 	*(ptr) = ans;
 	return;
+}
+
+int mod(int a, int b) {
+	return a - ((a / b) * b);
 }
 
 

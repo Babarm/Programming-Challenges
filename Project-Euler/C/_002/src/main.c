@@ -49,8 +49,8 @@ int main() {
 	printf("\e[1;1H\e[2J\n");
 
 	/* Heading for the challenge */
-	printf("Problem #:\n");
-	printf("==========\n\n");
+	printf("Problem #2: Even Fibonacci Numbers\n");
+	printf("==================================\n\n");
 
 	/* Mark starting timestamp */
 	start = ns();
@@ -77,6 +77,15 @@ int main() {
 /* Runs the actual code to solve the challenge */
 void run_challenge(int64_t* ptr) {
 	int64_t ans = 0;
+	int fib = 0, a = 0, b = 1;
+	while(fib < 4e6) {
+		fib = a + b;
+		a = b;
+		b = fib;
+		if((fib << 31) >> 31 == 0) {
+			ans += fib;
+		}
+	}
 	*(ptr) = ans;
 	return;
 }
