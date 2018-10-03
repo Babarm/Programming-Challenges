@@ -12,11 +12,16 @@ int run() {
 	/* | Place your code here | */
 	/* +----------------------+ */
 
+	/* Since we are continuously generating the next fibonacci number, and not generating the n-th number, */
+	/* there is no need to multi-thread it's calculation; multithreading would accomplish nothing, as each thread would */
+	/* be dependent on each of the other threads */
+
 	int a = 0, fib = 0, b = 1;
 	while (fib < 4000000) {
 		fib = a + b;
 		a = b;
 		b = fib;
+		/* If last bit == 0, then it must be divisible by two, and thus even */
 		if ((fib << 31) >> 31 == 0) {
 			ans += fib;
 		}

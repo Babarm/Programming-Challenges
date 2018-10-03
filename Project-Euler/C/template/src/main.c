@@ -1,62 +1,43 @@
-#include "main.h"
+#include <locale.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "timer.h"
 
-void clear() {
-	printf("\e[1;1H\e[2J");
-}
+void run_challenge(size_t* ans);
 
-/* Method that runs the challenge code */
-size_t run() {
-	size_t ans = 0;
-
-	/* +----------------------+ */
-	/* | Place your code here | */
-	/* +----------------------+ */
-
-	return ans;
-}
-
-/* Main entry point for the program */
-int main(int argc, char **argv) {
-
-	/* Ready the program for number formatting */
+int main() {
 	setlocale(LC_NUMERIC, "");
 
-	struct timespec start, end;
+	// Declare the variables needed for execution
+	size_t ans;
+	double time_elapsed;
+	uint64_t start, end;
 
-	clear();
+	// Clear the screen
+	printf("\e[1;1H\e[2J\n");
 
-	/* Print Title of Challenge */
-	printf("#: \n");
-	printf("===\n\n");
+	// Heading for the challenge
+	printf("Problem #:\n");
+	printf("==========\n\n");
 
-	printf("Running . . . \n\n");
+	// Run Problem
+	run_challenge(&ans);
 
-	/* Mark the starting timestamp */
-	clock_gettime(CLOCK_REALTIME, &start);
-	
-	/* Acquire Answer */
-	size_t *ans = malloc(sizeof(size_t));
-	*(ans) = run();
+	// Report Answer
+	printf("Answer: %'ld\n", ans);
 
-	/* Mark the ending timestamp and calculate time elapsed */
-	clock_gettime(CLOCK_REALTIME, &end);
-	long timestamp = end.tv_nsec - start.tv_nsec;
+	// Report Time Elapsed
 
-	/* Report the answer and the time taken to calculate the answer */
-	printf("Answer: %'lu\n", *(ans));
-	free(ans);
+	return EXIT_SUCCESS;
+}
 
-	/* Format the timestamp into something more readable */
-	printf("Completed in ");
-	if (timestamp >= 1000000000) {
-		printf("%0.3f sec\n\n", (double)timestamp / 1e9);
-	} else if (timestamp >= 1000000) {
-		printf("%0.3f ms\n\n", (double)timestamp / 1e6);
-	} else if (timestamp >= 1000) {
-		printf("%0.3f \u03BCs\n\n", (double)timestamp /1e3);
-	} else {
-		printf("%ld ns\n\n", timestamp);
-	}
+void run_challenge(size_t* ans) {
+	*(ans) = 10000;
+	return;
+}
 
-	return 0;
+void calculate_time_elapsed(uint64_t* start, uint64_t* end, double* time_elapsed) {
+
 }

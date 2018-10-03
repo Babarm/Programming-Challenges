@@ -1,6 +1,6 @@
 # Directories
 SRC_DIR = ./src
-INC_DIR = $(SRC_DIR)
+INC_DIR = ./include
 BUILD_DIR = ./bin
 
 # Name of the app
@@ -11,7 +11,7 @@ CC = gcc
 
 # Compiler Flags
 CFLAGS = -O3 -Wall
-LFLAG =
+LFLAGS =
 INCFLAGS = -I$(INC_DIR)
 
 # Source and Object Files
@@ -27,4 +27,4 @@ $(APP_NAME): $(OBJECTS)
 	$(CC) $(LFLAGS) -o $@ $^
 
 clean:
-	rm -rf $(BUILD_DIR)/*.o $(APP_NAME)
+	rm -rf $(BUILD_DIR)/*.o $(APP_NAME) build.log
