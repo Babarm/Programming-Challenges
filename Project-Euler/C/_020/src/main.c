@@ -29,11 +29,11 @@
 
 /* ==================================================================================================== */
 
-/* Method Prototypes */
+
 static uint64_t ns();
 void report_time_elapsed(uint64_t* start, uint64_t* end);
 void run_challenge(int64_t* ans);
-int sum_divisible(int a, int64_t target);
+void factorial(int n, char* buffer);
 
 
 /* ==================================================================================================== */
@@ -50,8 +50,8 @@ int main() {
 	printf("\e[1;1H\e[2J\n");
 
 	/* Heading for the challenge */
-	printf("Problem #1: Multiples of 3 and 5\n");
-	printf("================================\n\n");
+	printf("Problem #:\n");
+	printf("==========\n\n");
 
 	/* Mark starting timestamp */
 	start = ns();
@@ -77,14 +77,36 @@ int main() {
 
 /* Runs the actual code to solve the challenge */
 void run_challenge(int64_t* ptr) {
-	int64_t target = 999;
-	*(ptr) = sum_divisible(3, target) + sum_divisible(5, target) - sum_divisible(15, target);
+	int64_t ans = 0;
+	char * buffer = malloc(256 * sizeof(char));
+
+	factorial(100, buffer);
+
+	for(int i = 0; i < 256; i++) {
+		ans += buffer[i];
+	}
+
+	*(ptr) = ans;
+	free(buffer);
 	return;
 }
 
-int sum_divisible(int a, int64_t target) {
-	int64_t p = target / a;
-	return (int64_t) a * (p * (p + 1)) / 2;
+void factorial(int n, char* buffer) {
+	buffer[0] = 1;
+	int counter = 0, carry, i;
+	for(; n >= 2; n--) {
+		carry = 0;
+		for(i = 0; i <= counter; i++) {
+			carry += (buffer[i] * n);
+			buffer[i] = carry % 10;
+			carry /= 10;
+		}
+		while(carry > 0) {
+			buffer[++counter] = carry % 10;
+			carry /= 10;
+		}
+	}
+	return;
 }
 
 

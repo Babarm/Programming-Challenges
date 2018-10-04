@@ -29,11 +29,10 @@
 
 /* ==================================================================================================== */
 
-/* Method Prototypes */
+
 static uint64_t ns();
 void report_time_elapsed(uint64_t* start, uint64_t* end);
 void run_challenge(int64_t* ans);
-int sum_divisible(int a, int64_t target);
 
 
 /* ==================================================================================================== */
@@ -50,7 +49,7 @@ int main() {
 	printf("\e[1;1H\e[2J\n");
 
 	/* Heading for the challenge */
-	printf("Problem #1: Multiples of 3 and 5\n");
+	printf("Problem #3: Largest Prime Factor\n");
 	printf("================================\n\n");
 
 	/* Mark starting timestamp */
@@ -77,14 +76,21 @@ int main() {
 
 /* Runs the actual code to solve the challenge */
 void run_challenge(int64_t* ptr) {
-	int64_t target = 999;
-	*(ptr) = sum_divisible(3, target) + sum_divisible(5, target) - sum_divisible(15, target);
+	int64_t ans = 0;
+	int64_t limit = 600851475143;
+	int i = 2;
+	while (i * i < limit) {
+		if (limit % i == 0) {
+			limit /= i;
+			ans = i;
+		} else {
+			i++;
+		}
+	}
+	if (limit > ans)
+		ans = limit;
+	*(ptr) = ans;
 	return;
-}
-
-int sum_divisible(int a, int64_t target) {
-	int64_t p = target / a;
-	return (int64_t) a * (p * (p + 1)) / 2;
 }
 
 

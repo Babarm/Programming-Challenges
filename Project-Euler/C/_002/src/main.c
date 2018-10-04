@@ -77,14 +77,13 @@ int main() {
 /* Runs the actual code to solve the challenge */
 void run_challenge(int64_t* ptr) {
 	int64_t ans = 0;
-	int fib = 0, a = 0, b = 1;
-	while(fib < 4e6) {
+	int limit = 4000000;
+	int64_t a = 1, b = 1, fib = a + b;
+	while (fib < limit) {
+		ans += fib;
+		a = b + fib;
+		b = fib + a;
 		fib = a + b;
-		a = b;
-		b = fib;
-		if((fib << 31) >> 31 == 0) {
-			ans += fib;
-		}
 	}
 	*(ptr) = ans;
 	return;
