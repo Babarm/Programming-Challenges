@@ -33,7 +33,7 @@
 static uint64_t ns();
 void report_time_elapsed(uint64_t* start, uint64_t* end);
 void run_challenge(int64_t* ans);
-void big_factorial(int n, char* buffer);
+int64_t reverse_number(int64_t num);
 
 
 /* ==================================================================================================== */
@@ -50,8 +50,8 @@ int main() {
 	printf("\e[1;1H\e[2J\n");
 
 	/* Heading for the challenge */
-	printf("Problem #20: Factorial Digit Sum\n");
-	printf("================================\n\n");
+	printf("Problem #4: Largest Palindrome Product\n");
+	printf("======================================\n\n");
 
 	/* Mark starting timestamp */
 	start = ns();
@@ -78,35 +78,28 @@ int main() {
 /* Runs the actual code to solve the challenge */
 void run_challenge(int64_t* ptr) {
 	int64_t ans = 0;
-	char * buffer = malloc(256 * sizeof(char));
-
-	big_factorial(100, buffer);
-
-	for(int i = 0; i < 256; i++) {
-		ans += buffer[i];
+	int a, b;
+	for (a = 999; a >= 900; a--) {
+		for (b=999; b >= 900; b--) {
+			int64_t c = a * b;
+			if(c == reverse_number(c) && c > ans) {
+				printf("%d x %d\n", a, b);
+				ans = c;
+			}
+		}
 	}
-
 	*(ptr) = ans;
-	free(buffer);
 	return;
 }
 
-void big_factorial(int n, char* buffer) {
-	buffer[0] = 1;
-	int counter = 0, carry, i;
-	for(; n >= 2; n--) {
-		carry = 0;
-		for(i = 0; i <= counter; i++) {
-			carry += (buffer[i] * n);
-			buffer[i] = carry % 10;
-			carry /= 10;
-		}
-		while(carry > 0) {
-			buffer[++counter] = carry % 10;
-			carry /= 10;
-		}
+int64_t reverse_number(int64_t num) {
+	int64_t value = num;
+	int64_t reversed = 0;
+	while (value != 0) {
+		reversed = (reversed * 10) + (value % 10);
+		value /= 10;
 	}
-	return;
+	return reversed;
 }
 
 
