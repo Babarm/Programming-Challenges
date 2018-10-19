@@ -3,21 +3,25 @@
 int challenge_runner_running = 0;
 int run_challenges = 1;
 
-void  *empty() {
-	sleep(10);
-	challenge_runner_running = 0;
-	return NULL;
-}
-
 /* Main Loop of Application */
 void __init__() {
 	setlocale(LC_NUMERIC, "");
 
 	while(run_challenges) {
+
+		int valid, id, gc;
+		printf("Challenge ID: ");
+		valid = scanf("%d", &id);
+		while(valid != 1) {
+			while((gc = getchar()) != EOF && gc != '\n');
+			printf("Challenge ID: ");
+			valid = scanf("%d", &id);
+		}
+
 		/* Spawn a thread to run the specified challenge. */
 		pthread_t challenge_runner;
 		challenge_runner_running = 1;
-		pthread_create(&challenge_runner, NULL, empty, NULL);
+		pthread_create(&challenge_runner, NULL, run_challenge, (void *)(&id));
 
 		/* Wait until the challenge is done running, showing the user that it is still running */
 		int i = 0;
@@ -48,6 +52,15 @@ void __init__() {
 
 	return;
 }
+
+
+/* ================================================================================================================== */
+
+void * run_challenge(void * id) {
+	challenge_runner_running = 0;
+	return NULL;
+}
+
 
 /* ================================================================================================================== */
 
