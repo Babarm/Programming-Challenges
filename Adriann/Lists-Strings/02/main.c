@@ -1,38 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-void print_arr(int * arr, int len);
-void reverse(int * arr, int len);
-void swap(int * x, int * y);
+void reverse(int * array, int size);
+void swap(int * a, int * b);
 
 int main() {
-	int * arr = malloc(8 * sizeof(int));
-	for(int i = 0; i < 8; i++) {
-		printf("Enter number: ");
-		scanf("%d", &arr[i]);
+	srand(time(NULL));
+	
+	const int size = rand() % 16 + 1;
+	int * list = malloc(size * sizeof(int));
+	int range = 1000;
+
+	printf("Generating list of %d integers between [-%d, %d]. . .\n", size, range, range);
+	for(int i = 0; i < size; i++) {
+		list[i] = rand() % (range + 1);
+		if(rand() << 31 == 0)
+			list[i] *= -1;
+		printf("%d ", list[i]);
+		fflush(stdout);
 	}
-	print_arr(arr, 8);
-	reverse(arr, 8);
-	print_arr(arr, 8);
-	return 0;
+	printf("\nReversing . . . \n");
+
+	reverse(list, size);
+
+	for(int i = 0; i < size; i++) {
+		printf("%d ", list[i]);
+	}
+	printf("\n\n");
+
+	return EXIT_SUCCESS;
 }
 
-void print_arr(int * arr, int len) {
-	printf("[ ");
-	for(int i = 0; i < len - 1; i++) {
-		printf("%d, ", arr[i]);
+void reverse(int * list, int size) {
+	for(int i = 0; i < size / 2; i++) {
+		swap(&list[i], &list[size - i - 1]);
 	}
-	printf("%d ]\n", arr[len - 1]);
 }
 
-void swap(int * x, int * y) {
-	int x_val = *x;
-	*x = *y;
-	*y = x_val;
-}
-
-void reverse(int * arr, int len) {
-	for(int i = 0; i < (len >> 1); i++) {
-		swap(&arr[i], &arr[len - i - 1]);
-	}
+void swap(int * a, int * b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
