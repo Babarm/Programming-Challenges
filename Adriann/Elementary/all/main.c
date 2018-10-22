@@ -22,7 +22,6 @@ int main() {
 	int n, choice = 0;
 
 	
-	/*
 	printf("[ 1] Hello World!\n\n");
 
 
@@ -84,7 +83,6 @@ int main() {
 		printf("     Sum of all numbers 1 to %d: %d\n\n", n, sum(n));
 	else
 		printf("     Product of all numbers 1 to %d: %d\n\n", n, factorial(n));
-	*/
 
 	printf("[ 7]   |  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12|\n");
 	printf("     --+---+---+---+---+---+---+---+---+---+---+---+---+\n");
