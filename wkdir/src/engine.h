@@ -26,4 +26,3 @@ void __init__();
 uint64_t ns();
 void format_time(char * dest, uint64_t * span);
 void format_prog_time(char * dest, uint64_t * span);
-void * run_challenge(void * id);
