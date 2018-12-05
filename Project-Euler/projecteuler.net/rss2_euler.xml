@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" >
+<channel>
+<title>Project Euler</title>
+<atom:link href="https://projecteuler.net/rss2_euler.xml" rel="self" type="application/rss+xml" /><link>https://projecteuler.net</link>
+<description>A website dedicated to the fascinating world of mathematics and programming.</description>
+<language>en</language>
+<copyright>projecteuler.net</copyright>
+<webMaster>no_reply@projecteuler.net (Colin Hughes)</webMaster>
+<lastBuildDate>Mon, 03 Dec 2018 21:00:23 +0000</lastBuildDate>
+<ttl>60</ttl>
+<item>
+<title>Problem 645</title>
+<link>https://projecteuler.net/problem=645</link>
+<description>Release date: Sun, 02 Dec 2018 01:00:00 +0000</description>
+<guid isPermaLink="false">problem_id_645</guid>
+</item>
+<item>
+<title>Problem 644</title>
+<link>https://projecteuler.net/problem=644</link>
+<description>Release date: Sat, 24 Nov 2018 22:00:00 +0000</description>
+<guid isPermaLink="false">problem_id_644</guid>
+</item>
+<item>
+<title>Problem 643</title>
+<link>https://projecteuler.net/problem=643</link>
+<description>Release date: Sat, 17 Nov 2018 19:00:00 +0000</description>
+<guid isPermaLink="false">problem_id_643</guid>
+</item>
+<item>
+<title>Problem 642</title>
+<link>https://projecteuler.net/problem=642</link>
+<description>Release date: Sat, 10 Nov 2018 16:00:00 +0000</description>
+<guid isPermaLink="false">problem_id_642</guid>
+</item>
+<item>
+<title>Problem 641</title>
+<link>https://projecteuler.net/problem=641</link>
+<description>Release date: Sat, 03 Nov 2018 13:00:00 +0000</description>
+<guid isPermaLink="false">problem_id_641</guid>
+</item>
+<item>
+<title>Weekly Publication Schedule</title>
+<link>https://projecteuler.net/news</link>
+<description><![CDATA[ <p><p>About a year ago we decided to reduce the release of new problems to one problem every two weeks.</p>
+
+<p>Thanks to the many contributions made by our members we now have enough problems in stock to release one problem every week.
+Because we don't want the authors to wait too long before their problem is published we make the following decision:
+At the start of each new batch of problems (usually 6 problems) we will make a decision to release those problems weekly if there are sufficient problems in stock; otherwise we will follow a two-weekly schedule for that batch of problems.
+At the top of news page you can always see when new problems are released.</p>
+
+<p>We hope that members will keep contributing enough proposals to maintain a weekly publication scheme.</p></p> ]]>
+(Saturday 20 October 2018: Weekly Publication Schedule)</description>
+<pubDate>Sat, 20 Oct 2018 01:00:00 +0100</pubDate>
+<guid isPermaLink="false">news_id_98</guid>
+</item>
+<item>
+<title>Progress Page Change</title>
+<link>https://projecteuler.net/news</link>
+<description><![CDATA[ <p><p>Just in case you thought your Progress page was broken, a small and deliberate change has been made to the colour scheme on the grid showing which problems you have solved. Along with being more in-keeping with the general site colour scheme, the shading indicates the relative difficulty of the problems. Hopefully the changes aren't too distracting and will serve to provide more useful information on that page.</p></p> ]]>
+(Tuesday 25 September 2018: Progress Page Change)</description>
+<pubDate>Tue, 25 Sep 2018 01:00:00 +0100</pubDate>
+<guid isPermaLink="false">news_id_97</guid>
+</item>
+<item>
+<title>Project Euler and the GDPR</title>
+<link>https://projecteuler.net/news</link>
+<description><![CDATA[ <p><p>As many of you will know, the law concerning any data held by European citizens: General Data Protection Regulation (GDPR), came into effect on 25 May 2018. Not only is the website hosted in Europe, but a large proportion of our membership also live within Europe, so this legislation affects us.</p>
+
+<p>For some time now we have been reviewing and discussing our policies and practices to ensure that we would be compliant with the new legislation when it came into effect. If you are familiar with the GDPR, then you will know from our previous privacy policy that the main website, <a href="https://projecteuler.net">projecteuler.net</a>, was already compliant. This is due to a combination of having anonymous accounts (that is, we require no personal data which could be used to identify an individual), members having full control over any data they enter, and always providing a full and transparent disclosure of how we handle data. However, as a way to ensure that we communicate as clearly as possible how we operate it was felt by the team that the privacy policy should be updated to ensure greater clarity in all parts. For this reason, we ask all members to take the time to read and review the <a href="https://projecteuler.net/privacy">Privacy Policy</a>.</p>
+
+<p>Where we have made important changes, however, is with the Project Euler alternative forum: <a href="https://projecteuler.chat">projecteuler.chat</a>, which uses the latest release of the phpBB forum software. In order to operate with consistency across both websites we have made the decision to ensure anonymity there too. That is, we have removed all user email addresses from the database, there is neither a requirement nor an option to enter email addresses, and user IP addresses are no longer recorded. So it should be noted that all previous functionality relating to emails, such as notifications, are no longer available. As with the main website, if you have already created an account at the forum, then we would ask that you visit the website to read and review the privacy policy.</p>
+
+<p>We hope that you are happy with the outcome of our review and continue to enjoy being a part of the Project Euler community.</p></p> ]]>
+(Sunday 27 May 2018: Project Euler and the GDPR)</description>
+<pubDate>Sun, 27 May 2018 01:00:00 +0100</pubDate>
+<guid isPermaLink="false">news_id_96</guid>
+</item>
+<item>
+<title>Changing Statistical Data View</title>
+<link>https://projecteuler.net/news</link>
+<description><![CDATA[ <p><p>It is now possible to change the statistical data shown on the <a href="https://projecteuler.net/statistics">Statistics</a> pages from the default view of all registered members to active members only; that is, members who have solved a problem within the last 365 days.</p>
+<p>It should also be noted that changing to the alternative view will create a cookie (name = statistics_show) to remember your choice. If you revert back to all registered members, then the cookie will be deleted. The <a href="https://projecteuler.net/privacy">Privacy Policy</a> has been updated to reflect this change.</p></p> ]]>
+(Sunday 18 February 2018: Changing Statistical Data View)</description>
+<pubDate>Sun, 18 Feb 2018 01:00:00 +0000</pubDate>
+<guid isPermaLink="false">news_id_95</guid>
+</item>
+<item>
+<title>New BBCode [Collapse]</title>
+<link>https://projecteuler.net/news</link>
+<description><![CDATA[ <p><p>A recent BBCode has been added to the forum: [collapse], allowing members to post blocks of text that can be expanded and collapsed. It works in the same way as the code block, except you can use any other formatted text within it, including TeX. For more information on the usage of this tag and the others, then please see:<br />
+<a href="https://projecteuler.net/about=forum_tags">https://projecteuler.net/about=forum_tags</a></p>
+
+<p>It may be useful when you wish to post a lengthy section of text (for example, proofs or program output) which might otherwise interfere with the brevity of your post. Similarly if you wish to hide solutions/spoilers relating to extension questions posed by members on the current problem.</p>
+
+<p>On the subject of spoilers, it has been noted on occasion that some members have posted comments like, "I used the same code to solve problem XXX" or "By changing your algorithm in the following way you can solve problem YYY". We understand that this has always been well meaning, but other members may not have solved that problem yet and would like to tackle it independently for themselves. So we would ask that members, when referring to other problems, hide the reference with the <span class="forum_hide">hide tag</span> or the new collapse tag for longer replies; see link above for usage.</p></p> ]]>
+(Saturday 10 February 2018: New BBCode [Collapse])</description>
+<pubDate>Sat, 10 Feb 2018 01:00:00 +0000</pubDate>
+<guid isPermaLink="false">news_id_94</guid>
+</item>
+</channel>
+</rss>
