@@ -5,7 +5,7 @@ if [ "$1" = "clean" ]; then
     for dir in ./*/
     do
         cd ${dir}
-        make clean > /dev/null
+        make clean
         cd ..
     done
     printf "\nDONE\n"
@@ -16,13 +16,14 @@ fi
 for dir in ./*/
 do
     cd ${dir}
-    make > /dev/null
+    printf "%s:\n" "${dir}"
+    make
+    printf "\n"
     if [ $? != 0 ]; then
         printf "\nMake target failed for: %s\n\n" "${dir}"
         exit
     fi
     cd ..
-    printf "*"
 done
 
 printf "\nAll directories successfully built\n"

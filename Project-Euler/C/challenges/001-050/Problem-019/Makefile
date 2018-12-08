@@ -3,4 +3,4 @@ all:
 	gcc main.o ../../library/plibrary.o
 
 clean:
-	rm ./a.out main.o
+	rm -f ./a.out main.o
