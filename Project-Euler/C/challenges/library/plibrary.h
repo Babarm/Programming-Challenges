@@ -61,4 +61,7 @@ double pow(double n, double k);
 // Converts an arabic number to its english representation
 char * num2string(int n);
 
+// Determines the sum of the proper divisors of a number
+int sum_divisors(int n);
+
 #endif

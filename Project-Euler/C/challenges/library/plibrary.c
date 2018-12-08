@@ -225,3 +225,15 @@ char * num2string(int n) {
 
     return string;
 }
+
+
+// Determines the sum of the proper divisors of a number
+int sum_divisors(int n) {
+    if(n == 0) return 0;
+    int sum = 1;
+    for(int i = 2; i < n; i++) {
+        if(n % i == 0)
+            sum += i;
+    }
+    return sum;
+}
