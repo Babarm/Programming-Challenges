@@ -14,4 +14,6 @@ int main() {
     char * timestamp = format_time(end - start);
     printf("Time elapsed: %s\n", timestamp);
     free(timestamp);
+
+    return 0;
 }

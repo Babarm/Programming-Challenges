@@ -1,7 +1,5 @@
 #include "../../library/plibrary.h"
 
-#define MAX 6000
-
 int main() {
     setlocale(LC_NUMERIC, "");
 
@@ -13,17 +11,25 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    char ** names = malloc(sizeof(char *) * MAX);
-    for(int i = 0; i < MAX; i++) {
-        names[i] = malloc(32);
-        memset(names[i], 0, 32);
-    }
-
+    char * curr_name = malloc(32);
+    memset(curr_name, 0, 32);
 
     uint64_t start = ns();
 
     int name_index = 0;
-    while(fgets(names[name_index++], 32, file) != NULL);
+
+    while(fgets(curr_name, 32, file) != NULL) {
+        int score = 0;
+        int i = 0;
+        while(curr_name[i] != '\0') {
+            if(curr_name[i] >= 'A')
+                score += (curr_name[i] - 'A' + 1);
+            i++;
+        }
+        score *= ++name_index;
+        ans += score;
+    }
+
 
     uint64_t end = ns();
 
@@ -33,10 +39,7 @@ int main() {
     printf("Time elapsed: %s\n", timestamp);
     free(timestamp);
 
-    for(int i = 0; i < MAX; i++) {
-        free(names[i]);
-    }
-    free(names);
+    free(curr_name);
 
     return 0;
 }

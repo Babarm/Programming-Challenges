@@ -5,7 +5,9 @@ if [ "$1" = "clean" ]; then
     for dir in ./*/
     do
         cd ${dir}
+        printf "%s:\n" "${dir}"
         make clean
+        printf "\n"
         cd ..
     done
     printf "\nDONE\n"
