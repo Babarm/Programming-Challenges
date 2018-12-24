@@ -1,9 +1,9 @@
 #!/bin/bash
 
-for i in {001..650};
+for dir in ./*/;
 do
-    cd Problem-$i
-    printf "\nProblem $i:\n"
+    printf "\n%s\n" "$dir"
+    cd $dir
     make
     cd ..
-done
+done;

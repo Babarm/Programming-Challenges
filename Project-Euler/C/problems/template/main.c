@@ -12,6 +12,9 @@ int main() {
 
     printf("Running . . .\n\n");
 
+    // Variable to hold the answer
+    uint64_t ans = 0;
+
     // Record the starting timestamp
     uint64_t start = ns();
 
@@ -23,7 +26,7 @@ int main() {
     uint64_t end = ns();
 
     // Report answer to problem --- Must Insert Manually
-    printf("Answer: \n\n");
+    printf("Answer: %'llu\n\n", ans);
 
     // Format the timespan into a readable format and report
     char * timespan = format_time(end - start);

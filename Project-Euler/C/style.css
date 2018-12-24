@@ -1,0 +1,79 @@
+html {
+    font-family: "Trebuchet MS", sans-serif;
+    background: cornsilk;
+    color: black;
+}
+
+body {
+    margin: 0;
+    padding-top: 25px;
+    margin-bottom: 100px;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+h1,h2 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+}
+
+div.main {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+}
+
+table {
+    margin:auto;
+    border: 1px solid black;
+    background: white;
+    width: 60%;
+    max-width: 60%;
+}
+
+table {
+    border-radius: 4px;
+}
+
+th,td {
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+table.problem,td.problem,tr.problem {
+    border: none;
+    text-align:left;
+    width: auto;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 10px;
+}
+
+div.description {
+    width: 60%;
+    margin: auto;
+    background: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+var {
+    font-family: 'Times New Roman',sans-serif;
+    font-style: italic;
+    font-size: 120%;
+}
+
+.note {
+    font-size: 90%;
+}
